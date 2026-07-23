@@ -15,7 +15,4 @@ public class Chamado {
     private Long id;
     private String titulo;
     private String descricao;
-
-
-
 }
