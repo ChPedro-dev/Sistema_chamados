@@ -1,8 +1,14 @@
 package com.zpTec.Sistema_Chamados.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,8 +22,13 @@ public class Usuario{
     private String email;
     private String senha;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuarioCriador", cascade = CascadeType.ALL)
+    private List<Chamado> chamadosCriados;
 
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuarioEncarregado", cascade = CascadeType.ALL)
+    private List<Chamado> ChamadosEncarregados;
 
     public Long getId() {
 		return id;
