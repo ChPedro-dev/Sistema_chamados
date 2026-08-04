@@ -29,7 +29,7 @@ public class Usuario {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuarioEncarregado", cascade = CascadeType.ALL)
-	private List<Chamado> ChamadosEncarregados;
+	private List<Chamado> chamadosEncarregados;
 
 	public Long getId() {
 		return id;
@@ -71,14 +71,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Cargo getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
-
 	public List<Chamado> getChamadosCriados() {
 		return chamadosCriados;
 	}
@@ -88,11 +80,11 @@ public class Usuario {
 	}
 
 	public List<Chamado> getChamadosEncarregados() {
-		return ChamadosEncarregados;
+		return chamadosEncarregados;
 	}
 
 	public void setChamadosEncarregados(List<Chamado> chamadosEncarregados) {
-		ChamadosEncarregados = chamadosEncarregados;
+		this.chamadosEncarregados = chamadosEncarregados;
 	}
 
 }
