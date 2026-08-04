@@ -21,6 +21,7 @@ public class Usuario {
 	private String sobrenome;
 	private String email;
 	private String senha;
+	private Cargo cargo;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuarioCriador", cascade = CascadeType.ALL)
