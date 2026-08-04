@@ -1,6 +1,8 @@
 package com.zpTec.Sistema_Chamados.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,6 +17,9 @@ public class Chamado {
     private Long id;
     private String titulo;
     private String descricao;
+
+	@Enumerated(EnumType.STRING)
+    private StatusChamado status = StatusChamado.ABERTO;
 
     @ManyToOne
     @JoinColumn(name = "usuario_criador_id")
@@ -42,6 +47,24 @@ public class Chamado {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public StatusChamado getStatus() {
+		return status;
+	}
+	public void setStatus(StatusChamado status) {
+		this.status = status;
+	}
+	public Usuario getUsuarioCriador() {
+		return usuarioCriador;
+	}
+	public void setUsuarioCriador(Usuario usuarioCriador) {
+		this.usuarioCriador = usuarioCriador;
+	}
+	public Usuario getUsuarioEncarregado() {
+		return usuarioEncarregado;
+	}
+	public void setUsuarioEncarregado(Usuario usuarioEncarregado) {
+		this.usuarioEncarregado = usuarioEncarregado;
 	}
 
 
