@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.zpTec.Sistema_Chamados.dto.usuario.CadastrarUsuarioDto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,6 +31,18 @@ public class Usuario {
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuarioEncarregado", cascade = CascadeType.ALL)
 	private List<Chamado> chamadosEncarregados;
+
+
+	
+
+
+
+	public Usuario(String nome, String sobrenome, String email, String senha) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+		this.senha = senha;
+	}
 
 	public Long getId() {
 		return id;
