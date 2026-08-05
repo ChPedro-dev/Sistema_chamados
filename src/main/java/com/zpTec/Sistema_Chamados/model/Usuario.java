@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.zpTec.Sistema_Chamados.dto.usuario.CadastrarUsuarioDto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -98,6 +97,14 @@ public class Usuario {
 
 	public void setChamadosEncarregados(List<Chamado> chamadosEncarregados) {
 		this.chamadosEncarregados = chamadosEncarregados;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 }
