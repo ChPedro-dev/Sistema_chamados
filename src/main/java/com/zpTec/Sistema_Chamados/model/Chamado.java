@@ -29,6 +29,11 @@ public class Chamado {
     @JoinColumn(name = "usuario_encarregado_id")
     private Usuario usuarioEncarregado;
 
+	public Chamado(String titulo, String descricao,Usuario usuarioCriador){
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.usuarioCriador = usuarioCriador;
+	}
 
     public Long getId() {
 		return id;

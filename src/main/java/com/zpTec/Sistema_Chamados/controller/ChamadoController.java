@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zpTec.Sistema_Chamados.dto.chamado.CadastrarChamadoDto;
 import com.zpTec.Sistema_Chamados.model.StatusChamado;
 import com.zpTec.Sistema_Chamados.service.ChamadoService;
 
@@ -30,12 +31,13 @@ public class ChamadoController{
     }
 
     @PostMapping("/novo")
-    public void criarChamado(){
+    public void criarChamado(@RequestBody CadastrarChamadoDto dto){
 
+        chamadoService.novoChamado(dto);
 
     }
 
-    @PutMapping("atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public void atualizarStatusChamado(@PathVariable Long id, @RequestBody StatusChamado statusChamado) {    
          
         chamadoService.atualizarStatusChamado(id,statusChamado);
