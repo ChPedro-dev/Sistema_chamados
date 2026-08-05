@@ -35,7 +35,7 @@ public class ChamadoController{
 
     }
 
-    @PutMapping("atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     public void atualizarStatusChamado(@PathVariable Long id, @RequestBody StatusChamado statusChamado) {    
          
         chamadoService.atualizarStatusChamado(id,statusChamado);
