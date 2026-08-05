@@ -1,12 +1,17 @@
 package com.zpTec.Sistema_Chamados.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zpTec.Sistema_Chamados.dto.usuario.CadastrarUsuarioDto;
+import com.zpTec.Sistema_Chamados.dto.usuario.ListaUsuarioDto;
 import com.zpTec.Sistema_Chamados.service.UsuarioService;
+
 
 
 @RestController
@@ -25,6 +30,12 @@ public class UsuarioController {
         service.cadastrarUsuario(dto);
 
     }
+    
+    @GetMapping()
+    public List<ListaUsuarioDto> listarUsuarios() {
+       return service.listarUsuarios();
+    }
+    
     
 
 
