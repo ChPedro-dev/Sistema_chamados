@@ -23,7 +23,6 @@ public class ChamadoController{
     }
 
 
-
     @GetMapping
     public void listarChamados(){
 
@@ -32,7 +31,6 @@ public class ChamadoController{
 
     @PostMapping("/novo")
     public void criarChamado(){
-
 
 
     }
