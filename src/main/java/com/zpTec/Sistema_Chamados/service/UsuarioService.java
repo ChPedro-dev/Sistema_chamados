@@ -1,8 +1,11 @@
 package com.zpTec.Sistema_Chamados.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.zpTec.Sistema_Chamados.dto.usuario.CadastrarUsuarioDto;
+import com.zpTec.Sistema_Chamados.dto.usuario.ListaUsuarioDto;
 import com.zpTec.Sistema_Chamados.model.Usuario;
 import com.zpTec.Sistema_Chamados.repository.UsuarioRepository;
 
@@ -27,7 +30,15 @@ public class UsuarioService {
                 dto.email(),
                 passwordEncoder.encode(dto.senha())
             ));
-        
     }
+
+    public List<ListaUsuarioDto> listarUsuarios() 
+    {
+        return repository.findAll()
+            .stream()
+            .map(ListaUsuarioDto::new)
+            .toList();
+    }
+
 
 }
